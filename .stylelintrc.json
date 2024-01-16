@@ -1,0 +1,14 @@
+{
+  "extends": [
+      "stylelint-config-html",
+      "stylelint-config-recommended",
+      "stylelint-config-recommended-vue"
+  ],
+  "customSyntax": "postcss-scss",
+  "rules": {
+      "indentation": 4,
+      "max-nesting-depth": 3,
+      "no-empty-first-line": null,
+      "no-empty-source": null
+  }
+}

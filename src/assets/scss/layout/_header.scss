@@ -1,0 +1,27 @@
+.header {
+    position: relative;
+    height: 50px;
+    background: transparent;
+    @include respond-to("md") {
+        height: 76px;
+    }
+    &--wrap {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 0;
+    }
+    &-logo {
+        width: 100%;
+        max-width: 120px;
+        line-height: 0;
+        @include respond-to("md") {
+            max-width: 180px;
+        }
+        svg {
+            width: 100%;
+            height: 100%;
+        }
+    }
+}

@@ -1,7 +1,8 @@
 .header {
     position: relative;
-    height: 50px;
+    height: 57px;
     background: transparent;
+    background: #1A1F38;
     @include respond-to("md") {
         height: 76px;
     }
@@ -13,15 +14,11 @@
         padding: 15px 0;
     }
     &-logo {
-        width: 100%;
-        max-width: 120px;
-        line-height: 0;
+        color: #ff5500;
+        font-weight: bold;
+        font-size: 18px;
         @include respond-to("md") {
-            max-width: 180px;
-        }
-        svg {
-            width: 100%;
-            height: 100%;
+            font-size: 22px;
         }
     }
 }

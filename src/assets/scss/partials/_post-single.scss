@@ -1,0 +1,12 @@
+.post {
+    &-top {
+        padding: 20px 0;
+        margin-bottom: 10px;
+        background: #efe0ca;
+        color: #001233;
+        @include respond-to("md") {
+            padding: 70px 0;
+            margin-bottom: 40px;
+        }
+    }
+}

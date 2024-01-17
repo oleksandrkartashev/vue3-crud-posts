@@ -7,7 +7,7 @@ import VNavbar from "@/components/VNavbar.vue";
     <div class="container">
       <div class="header--wrap">
         <router-link :to="{ path: '/' }" class="header-logo">
-          <img src="https://placehold.co/130x25?text=Logo" alt="Logo" />
+          _CRUD
         </router-link>
         <VNavbar />
       </div>

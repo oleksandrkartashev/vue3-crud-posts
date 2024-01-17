@@ -32,12 +32,25 @@ const postsList = ref([
     status: "pending",
   },
 ]);
+
+const editPostHandler = (id) => {
+  console.log("edit post", id);
+};
+
+const deletePostHandler = (id) => {
+  postsList.value = postsList.value.filter((i) => i.id !== id);
+};
 </script>
 
 <template>
   <div class="container">
     <h1>Posts</h1>
-    <vPosts v-if="postsList.length" :posts="postsList" />
+    <vPosts
+      v-if="postsList.length"
+      :posts="postsList"
+      @edit-post="editPostHandler"
+      @delete-post="deletePostHandler"
+    />
     <vEmptyResults v-else />
   </div>
 </template>

@@ -8,11 +8,19 @@
         border-bottom: 1px solid #fff;
         margin-bottom: 15px;
         padding-bottom: 5px;
+        position: relative;
         @include respond-to("md") {
             padding-bottom: 15px;
         }
         &:last-child {
             border: none;
+        }
+        &:hover {
+            .post-actions {
+                opacity: 1;
+                visibility: visible;
+                pointer-events: auto;
+            }
         }
     }
     .post {
@@ -64,6 +72,33 @@
             margin: 10px 0;
             opacity: 0.5;
             font-size: 14px;
+        }
+        &-actions {
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: calc(100% - 15px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(26,31,56, 0.9);
+            transition: .3s all;
+            @include respond-to("lg") {
+                flex-direction: row;
+            }
+            button {
+                &:not(:last-child) {
+                    margin: 0 0 5px;
+                    @include respond-to("lg") {
+                        margin: 0 15px 0 0;
+                    }
+                }
+            }
         }
     }
 }

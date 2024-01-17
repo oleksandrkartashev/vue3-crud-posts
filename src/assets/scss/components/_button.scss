@@ -16,9 +16,18 @@
         text-decoration: none;
     }
     &--primary {
-        background-color: var(--button--close-bg-color);
+        background-color: var(--primary-color);
         border-color: var(--button--close-border-color);
         color: var(--button-text-color);
+        &:hover {
+            color: 000;
+            opacity: 0.8;
+        }
+    }
+    &--secondary {
+        background-color:#efe0ca;
+        border-color: #efe0ca;
+        color: #1A1F38;
         &:hover {
             color: 000;
             opacity: 0.8;
@@ -78,6 +87,20 @@
         }
         &:after {
             transform: rotate(-45deg);
+        }
+    }
+    &--back {
+        padding: 0;
+        svg {
+            width: 20px;
+            height: 20px;
+            fill: #1A1F38;
+            transition: .3s;
+        }
+        &:hover {
+            svg {
+                opacity: 0.5;
+            }
         }
     }
 }

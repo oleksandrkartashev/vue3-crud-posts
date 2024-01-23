@@ -30,7 +30,7 @@
         &:hover {
             text-decoration: none;
         }
-        @include respond-to("md") {
+        @include respond-to("lg") {
             flex-direction: row;
             flex-wrap: nowrap;
             align-items: flex-start;
@@ -40,6 +40,7 @@
                 align-self: stretch;
                 position: relative;
                 flex-basis: 25%;
+                min-width: 25%;
                 margin-right: 20px;
             }
             img {
@@ -83,22 +84,23 @@
             width: 100%;
             height: calc(100% - 15px);
             display: flex;
-            flex-direction: column;
+            flex-direction: row;
             align-items: center;
             justify-content: center;
             background: rgba(26,31,56, 0.9);
             transition: .3s all;
-            @include respond-to("lg") {
-                flex-direction: row;
-            }
-            button {
+            .btn {
                 &:not(:last-child) {
-                    margin: 0 0 5px;
-                    @include respond-to("lg") {
-                        margin: 0 15px 0 0;
-                    }
+                    margin: 0 15px 0 0;
                 }
             }
+        }
+    }
+    &-add {
+        text-align: center;
+        margin: 0 0 20px;
+        @include respond-to("md") {
+            margin: 0 0 40px;
         }
     }
 }

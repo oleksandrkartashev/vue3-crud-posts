@@ -16,20 +16,20 @@
         text-decoration: none;
     }
     &--primary {
-        background-color: var(--primary-color);
-        border-color: var(--button--close-border-color);
-        color: var(--button-text-color);
+        background-color: var(--button--primary-bg-color);
+        border-color: var(--button--primary-bg-color);
+        color: var(--button-primary-text-color);
         &:hover {
-            color: 000;
+            color: var(--button-primary-text-color);
             opacity: 0.8;
         }
     }
     &--secondary {
-        background-color:#efe0ca;
-        border-color: #efe0ca;
-        color: #1A1F38;
+        background-color: var(--button--secondary-bg-color);
+        border-color: var(--button--secondary-bg-color);
+        color: var(--button-secondary-text-color);
         &:hover {
-            color: 000;
+            color: var(--button-secondary-text-color);
             opacity: 0.8;
         }
     }
@@ -94,13 +94,31 @@
         svg {
             width: 20px;
             height: 20px;
-            fill: #1A1F38;
+            fill: var(--primary-color);
             transition: .3s;
         }
         &:hover {
             svg {
                 opacity: 0.5;
             }
+        }
+    }
+    &--close {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 1.25rem;
+        height: 1.25rem;
+        padding: 0;
+        position: absolute;
+        top: 0.5rem;
+        right: 0.5rem;
+        border: none;
+        outline: none;
+        min-height: auto;
+        background: transparent;
+        svg {
+            fill: var(--button--close-icon-color);
         }
     }
 }

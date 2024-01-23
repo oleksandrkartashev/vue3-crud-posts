@@ -17,6 +17,8 @@
     <h2 class="no-results-title">
       Unfortunately, no results. Please try again OR
     </h2>
-    <button class="btn btn--primary btn--md">Create Post</button>
+    <router-link class="btn btn--md btn--primary" :to="{ name: 'add-post' }">
+      Create Post
+    </router-link>
   </div>
 </template>

@@ -2,7 +2,7 @@
     position: relative;
     height: 57px;
     background: transparent;
-    background: #1A1F38;
+    background: var(--primary-color);
     @include respond-to("md") {
         height: 76px;
     }
@@ -14,11 +14,15 @@
         padding: 15px 0;
     }
     &-logo {
-        color: #ff5500;
+        color: var(--secondary-color);
         font-weight: bold;
         font-size: 18px;
+        transition: .3s;
         @include respond-to("md") {
             font-size: 22px;
+        }
+        &:hover {
+            color: var(--thirdary-color);
         }
     }
 }

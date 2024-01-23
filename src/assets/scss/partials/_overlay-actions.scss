@@ -1,0 +1,17 @@
+.edit, .add {
+    &-actions {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        @include respond-to("md") {
+            margin-top: 40px;
+        }
+        .btn {
+            &:not(:last-child) {
+                margin: 0 15px 0 0;
+            }
+        }
+    }
+}

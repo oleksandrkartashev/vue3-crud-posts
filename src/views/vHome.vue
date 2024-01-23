@@ -1,56 +1,37 @@
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import { getPosts, deleteSinglePost } from "@/services/api";
 import vPosts from "@/components/vPosts.vue";
-import vEmptyResults from "@/components/vEmptyResults.vue";
 
-const postsList = ref([
-  {
-    id: 1,
-    title: "Post 1",
-    image_src: "https://placehold.co/600x400",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem iste illo molestiae fugit non voluptates, tempora labore corporis velit incidunt cum quo veritatis, soluta commodi distinctio sapiente blanditiis ducimus suscipit.",
-    author: "maxwell",
-    status: "published",
-  },
-  {
-    id: 2,
-    title: "Post 2",
-    image_src: "https://placehold.co/600x400",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem iste illo molestiae fugit non voluptates, tempora labore corporis velit incidunt cum quo veritatis, soluta commodi distinctio sapiente blanditiis ducimus suscipit.",
-    author: "maxwell",
-    status: "published",
-  },
-  {
-    id: 3,
-    title: "Post 3",
-    image_src: "https://placehold.co/600x400",
-    description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem iste illo molestiae fugit non voluptates, tempora labore corporis velit incidunt cum quo veritatis, soluta commodi distinctio sapiente blanditiis ducimus suscipit.",
-    author: "maxwell",
-    status: "pending",
-  },
-]);
+const postsList = ref([]);
 
-const editPostHandler = (id) => {
-  console.log("edit post", id);
+const fetchPosts = async () => {
+  const data = await getPosts();
+  if (data.length) {
+    postsList.value = data;
+  }
 };
 
-const deletePostHandler = (id) => {
-  postsList.value = postsList.value.filter((i) => i.id !== id);
+const deletePost = async (id) => {
+  const data = await deleteSinglePost(id);
+  if (data) {
+    const index = postsList.value.findIndex((post) => post.id === data.id);
+    if (index !== -1) {
+      postsList.value.splice(index, 1);
+    }
+  }
 };
+
+onMounted(() => {
+  if (!postsList.value.length) {
+    fetchPosts();
+  }
+});
 </script>
 
 <template>
   <div class="container">
     <h1>Posts</h1>
-    <vPosts
-      v-if="postsList.length"
-      :posts="postsList"
-      @edit-post="editPostHandler"
-      @delete-post="deletePostHandler"
-    />
-    <vEmptyResults v-else />
+    <vPosts :posts="postsList" @delete-post="deletePost" />
   </div>
 </template>

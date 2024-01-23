@@ -1,21 +1,33 @@
 :root {
-    --primary-text-color: #1A1F38;
-    --primary-bg-color: #fff;
-    --primary-color: #ff5500;
-    --secondary-color: #efe0ca;
+    --primary-white-color: #fff;
+    --primary-dark-color: #000;
+    --primary-color: #001233;
+    --secondary-color: #ff5500;
+    --thirdary-color: #efe0ca;
     --font-size-base: 16px;
     --font-family-base: 'Oswald', sans-serif;
     --line-height-base: 1.5;
     --image-max-width: 100%;
+    --base-border-color: var(--primary-color);
 
     // Button
-    --button-text-color: #fff;
-    --button--close-bg-color: #005792;
-    --button--close-border-color: #005792;
+    --button-primary-text-color: var(--primary-white-color);
+    --button--primary-border-color: var(--secondary-color);
+    --button--primary-bg-color: var(--secondary-color);
+
+    --button-secondary-text-color: var(--primary-color);
+    --button--secondary-border-color: var(--thirdary-color);
+    --button--secondary-bg-color: var(--thirdary-color);
+
+
+    // Close
+    --button--close-icon-color: var(--primary-color);
 
     // Toggle
-    --button--toggle-lines-color: #005792;
+    --button--toggle-lines-color: var(--primary-white-color);
 
     // Navbar 
-    --navbar-bg-color: #fff;
+    --navbar-bg-color: var(--primary-white-color);
+    --navbar-link-color: var(--thirdary-color);
+    --navbar-link-color-hover: var(--secondary-color);
 }

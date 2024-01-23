@@ -41,7 +41,7 @@
     &-item {
         margin: 0 0 8px;
         padding: 0 0 8px;
-        border-bottom: 1px solid #eee;
+        border-bottom: 1px solid var(--base-border-color);
         &:last-child {
             border: none;
         }
@@ -68,10 +68,10 @@
             display: inline-block;
             width: auto;
             padding: 5px 12px;
-            color: #efe0ca;
+            color: var(--navbar-link-color);
             transition: .3s;
             &:hover {
-                color: #ff5500;
+                color: var(--navbar-link-color-hover);
             }
         }
     }

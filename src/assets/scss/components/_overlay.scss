@@ -1,0 +1,19 @@
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    z-index: 1000;
+    padding: 30px 15px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    @include respond-to("md") {
+        padding: 50px 15px;
+    }
+    &-wrap {
+        position: relative;
+        width: 100%;
+    }
+}

@@ -1,5 +1,5 @@
 <script setup>
-import { onBeforeMount, ref } from "vue";
+import { onBeforeMount, reactive, ref } from "vue";
 import iconClose from "@assets/images/svg/icon-close.svg";
 import { getPosts, addPost } from "@/services/api";
 import { useRouter } from "vue-router";
@@ -7,12 +7,14 @@ import { useRouter } from "vue-router";
 const router = useRouter();
 const postsCount = ref(null);
 
-const newPost = ref({
-  id: "",
-  title: "",
-  description: "",
-  author: "",
-  image_src: "",
+const state = reactive({
+  newPost: {
+    id: "",
+    title: "",
+    description: "",
+    author: "",
+    image_src: "",
+  },
 });
 
 const getPostsCount = async () => {
@@ -21,10 +23,10 @@ const getPostsCount = async () => {
 };
 
 const addPostHandler = async () => {
-  const { title, description, image_src } = newPost.value;
-  newPost.value.id = String(postsCount.value + 1);
+  const { title, description, image_src } = state.newPost;
+  state.newPost.id = String(postsCount.value + 1);
   if (title && description && image_src) {
-    const data = await addPost(newPost.value);
+    const data = await addPost(state.newPost);
     if (data) {
       router.push("/");
     }
@@ -49,7 +51,7 @@ onBeforeMount(async () => {
             <label for="form-title">Add post title:</label>
             <input
               id="form-title"
-              v-model="newPost.title"
+              v-model="state.newPost.title"
               name="form-title"
               type="text"
               class="form-input"
@@ -60,7 +62,7 @@ onBeforeMount(async () => {
             <label for="form-description">Add post description:</label>
             <textarea
               id="form-description"
-              v-model="newPost.description"
+              v-model="state.newPost.description"
               name="form-description"
               type="text"
               class="form-textarea"
@@ -71,7 +73,7 @@ onBeforeMount(async () => {
             <label for="form-description">Add post author:</label>
             <input
               id="form-author"
-              v-model="newPost.author"
+              v-model="state.newPost.author"
               name="form-author"
               type="text"
               class="form-input"
@@ -83,7 +85,7 @@ onBeforeMount(async () => {
               <label for="form-image">Add image url:</label>
               <input
                 id="form-image"
-                v-model="newPost.image_src"
+                v-model="state.newPost.image_src"
                 name="form-image"
                 type="text"
                 class="form-input"
@@ -92,7 +94,7 @@ onBeforeMount(async () => {
             </div>
             <div>
               <label>Your image preview:</label>
-              <img :src="newPost.image_src" />
+              <img :src="state.newPost.image_src" />
             </div>
           </div>
         </form>

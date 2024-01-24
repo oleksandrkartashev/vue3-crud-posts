@@ -1,5 +1,5 @@
 <script setup>
-import { onMounted, ref } from "vue";
+import { onMounted, reactive, ref } from "vue";
 import iconClose from "@assets/images/svg/icon-close.svg";
 import { getPost, editPost } from "@/services/api";
 import { useRoute, useRouter } from "vue-router";
@@ -7,15 +7,17 @@ import { useRoute, useRouter } from "vue-router";
 const route = useRoute();
 const router = useRouter();
 
-const fetchedPost = ref(null);
-
-const editedPost = ref({
-  id: 0,
-  title: "",
-  description: "",
-  author: "",
-  image_src: "",
+const state = reactive({
+  editedPost: {
+    id: 0,
+    title: "",
+    description: "",
+    author: "",
+    image_src: "",
+  },
 });
+
+const fetchedPost = ref(null);
 
 const fetchPost = async (id) => {
   const data = await getPost(id);
@@ -31,11 +33,11 @@ onMounted(async () => {
   if (!fetchedPost.value) {
     await fetchPost(editPostId);
   }
-  editedPost.value = { ...fetchedPost.value };
+  state.editedPost = { ...fetchedPost.value };
 });
 
 const editPostHandler = async () => {
-  const request = await editPost(editedPost.value);
+  const request = await editPost(state.editedPost);
   if (request) {
     router.push("/");
   }
@@ -55,7 +57,7 @@ const editPostHandler = async () => {
             <label for="form-title">Add post title:</label>
             <input
               id="form-title"
-              v-model="editedPost.title"
+              v-model="state.editedPost.title"
               name="form-title"
               type="text"
               class="form-input"
@@ -66,7 +68,7 @@ const editPostHandler = async () => {
             <label for="form-description">Add post description:</label>
             <textarea
               id="form-description"
-              v-model="editedPost.description"
+              v-model="state.editedPost.description"
               name="form-description"
               type="text"
               class="form-textarea"
@@ -77,7 +79,7 @@ const editPostHandler = async () => {
             <label for="form-description">Add post author:</label>
             <input
               id="form-author"
-              v-model="editedPost.author"
+              v-model="state.editedPost.author"
               name="form-author"
               type="text"
               class="form-input"
@@ -89,7 +91,7 @@ const editPostHandler = async () => {
               <label for="form-image">Add image url:</label>
               <input
                 id="form-image"
-                v-model="editedPost.image_src"
+                v-model="state.editedPost.image_src"
                 name="form-image"
                 type="text"
                 class="form-input"
@@ -98,7 +100,7 @@ const editPostHandler = async () => {
             </div>
             <div>
               <label>Your image preview:</label>
-              <img :src="editedPost.image_src" />
+              <img :src="state.editedPost.image_src" />
             </div>
           </div>
         </form>

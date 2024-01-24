@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
-import svgLoader from 'vite-svg-loader';
+import svgLoader from "vite-svg-loader";
 import stylelint from "vite-plugin-stylelint";
 import eslintPlugin from "vite-plugin-eslint";
 import { fileURLToPath, URL } from "url";
@@ -22,8 +22,14 @@ export default defineConfig({
   },
   resolve: {
     alias: [
-      { find: '@', replacement: fileURLToPath(new URL('./src', import.meta.url)) },
-      { find: '@assets', replacement: fileURLToPath(new URL('./src/assets', import.meta.url)) },
+      {
+        find: "@",
+        replacement: fileURLToPath(new URL("./src", import.meta.url)),
+      },
+      {
+        find: "@assets",
+        replacement: fileURLToPath(new URL("./src/assets", import.meta.url)),
+      },
     ],
   },
 });

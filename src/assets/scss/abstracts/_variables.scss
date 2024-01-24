@@ -5,7 +5,7 @@
     --secondary-color: #ff5500;
     --thirdary-color: #efe0ca;
     --font-size-base: 16px;
-    --font-family-base: 'Oswald', sans-serif;
+    --font-family-base: "Oswald", sans-serif;
     --line-height-base: 1.5;
     --image-max-width: 100%;
     --base-border-color: var(--primary-color);
@@ -19,15 +19,32 @@
     --button--secondary-border-color: var(--thirdary-color);
     --button--secondary-bg-color: var(--thirdary-color);
 
-
     // Close
     --button--close-icon-color: var(--primary-color);
 
     // Toggle
     --button--toggle-lines-color: var(--primary-white-color);
 
-    // Navbar 
+    // Navbar
     --navbar-bg-color: var(--primary-white-color);
     --navbar-link-color: var(--thirdary-color);
     --navbar-link-color-hover: var(--secondary-color);
+
+    // Form
+    --form-text-color: var(--primary-color);
+    --form-border-color: var(--primary-color);
+    --form-invalid-color: var(--secondary-color);
+
+    //Overlay
+    --overlay-bg-color: var(--primary-white-color);
+
+    // Empty results
+    --empty-results-icon-color: var(--secondary-color);
+
+    // Post single
+    --post-single-top-bg-color: var(--thirdary-color);
+    --post-single-top-text-color: var(--primary-color);
+
+    // Post actions
+    --post-actions-bg-color: rgba(0, 18, 51, 0.9);
 }

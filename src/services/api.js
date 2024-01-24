@@ -1,35 +1,46 @@
-const APIurl = "http://localhost:3000";
+const API_URL = "http://localhost:3000";
 
-export const getSinglePost = async (id) => {
-  const response = await fetch(`${APIurl}/posts/?id=${id}`);
-  return response.json();
+const fetchJson = async (url, options = {}) => {
+  try {
+    const response = await fetch(url, options);
+
+    if (!response.ok) {
+      throw new Error(`HTTP error! Status: ${response.status}`);
+    }
+
+    return response.json();
+  } catch (e) {
+    console.error("Error during API request:", e.message);
+    throw e;
+  }
+};
+
+export const getPost = async (id) => {
+  return fetchJson(`${API_URL}/posts/?id=${id}`);
 };
 
 export const getPosts = async () => {
-  const response = await fetch(`${APIurl}/posts/`);
-  return response.json();
+  return fetchJson(`${API_URL}/posts/`);
 };
 
-export const deleteSinglePost = async (id) => {
-  const response = await fetch(`${APIurl}/posts/${id}`, {
-    method: 'DELETE',
+export const deletePost = async (id) => {
+  return fetchJson(`${API_URL}/posts/${id}`, {
+    method: "DELETE",
   });
-  return response.json();
 };
 
-export const editSinglePost = async (post) => {
-  const response = await fetch(`${APIurl}/posts/${post.id}`, {
-    method: 'PUT',
-    headers: { 'Content-Type': 'application/json' },
+export const editPost = async (post) => {
+  return fetchJson(`${API_URL}/posts/${post.id}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(post),
   });
-  return response.json();
 };
 
-export const addSinglePost = async (post) => {
-  const response = await fetch(`${APIurl}/posts/`, {
-    method: 'POST',
+export const addPost = async (post) => {
+  return fetchJson(`${API_URL}/posts/`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify(post),
   });
-  return response.json();
 };

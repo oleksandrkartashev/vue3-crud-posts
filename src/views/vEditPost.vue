@@ -1,7 +1,7 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import iconClose from "@assets/images/svg/icon-close.svg";
-import { getSinglePost, editSinglePost } from "@/services/api";
+import { getPost, editPost } from "@/services/api";
 import { useRoute, useRouter } from "vue-router";
 
 const route = useRoute();
@@ -18,9 +18,9 @@ const editedPost = ref({
 });
 
 const fetchPost = async (id) => {
-  const data = await getSinglePost(id);
+  const data = await getPost(id);
 
-  if (data) {
+  if (data && data.length) {
     const [post] = data;
     fetchedPost.value = post;
   }
@@ -34,8 +34,8 @@ onMounted(async () => {
   editedPost.value = { ...fetchedPost.value };
 });
 
-const submitEdit = async () => {
-  const request = await editSinglePost(editedPost.value);
+const editPostHandler = async () => {
+  const request = await editPost(editedPost.value);
   if (request) {
     router.push("/");
   }
@@ -106,7 +106,9 @@ const submitEdit = async () => {
           <router-link :to="{ path: '/' }" class="btn btn--primary">
             Cancel
           </router-link>
-          <button class="btn btn--secondary" @click="submitEdit">Submit</button>
+          <button class="btn btn--secondary" @click="editPostHandler">
+            Submit
+          </button>
         </div>
       </div>
     </div>

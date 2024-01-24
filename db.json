@@ -1,21 +1,21 @@
 {
   "posts": [
     {
-      "id": 1,
+      "id": "1",
       "title": "HTML Basics",
       "description": "HTML provides the content that gives web pages structure, by using elements and tags, you can add text, images, videos, forms, and more. Learning HTML basics is an important first step in your web development journey and an essential skill for front- and back-end developers.",
       "image_src": "https://placehold.co/670x420",
       "author": "Ross"
     },
     {
-      "id": 2,
+      "id": "2",
       "title": "CSS Basics",
       "description": "You’ll find learning CSS essential in styling websites. Web developers use it to build on basic HTML and add personality to plain text pages. This course helps you expand your coding foundation and gives you CSS interactive practice to start adding colors and background images or editing layouts so you can create your very own, unique stylized web pages.",
       "image_src": "https://placehold.co/670x420",
       "author": "Joey"
     },
     {
-      "id": 3,
+      "id": "3",
       "title": "Javascript Basics",
       "description": "You interact with JavaScript code all the time — you just might not realize it. It powers dynamic behavior on websites (like this one) and plays an important role in many fields, like front- and back-end engineering, game and mobile development, virtual reality, and more. In this course, you’ll learn JavaScript fundamentals that will be helpful as you dive deeper into more advanced topics.",
       "image_src": "https://placehold.co/670x420",

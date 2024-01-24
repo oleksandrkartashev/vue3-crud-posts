@@ -11,13 +11,13 @@
         margin-bottom: 10px;
         @include respond-to("lg") {
             margin-bottom: 20px;
-        } 
+        }
     }
     svg {
         width: 80px;
         height: 80px;
         margin-bottom: 10px;
-        fill: #fff;
+        fill: var(--empty-results-icon-color);
         @include respond-to("lg") {
             width: 100px;
             height: 100px;

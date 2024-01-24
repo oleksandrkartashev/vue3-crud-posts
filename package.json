@@ -1,6 +1,6 @@
 {
   "name": "vue3-crud-posts",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "Small CRUD on Vue 3",
   "author": "Olexander Kartashev <oleksandrkartashev@gmail.com>",
   "email": "oleksandrkartashev@gmail.com",
@@ -10,7 +10,8 @@
     "api-server": "json-server --watch db.json",
     "build": "vite build",
     "lint:styles": "stylelint src/**/*.scss --fix",
-    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore --fix src"
+    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
+    "format": "prettier . --write"
   },
   "dependencies": {
     "json-server": "^1.0.0-alpha.21",

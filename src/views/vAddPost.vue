@@ -1,7 +1,7 @@
 <script setup>
 import { onBeforeMount, ref } from "vue";
 import iconClose from "@assets/images/svg/icon-close.svg";
-import { getPosts, addSinglePost } from "@/services/api";
+import { getPosts, addPost } from "@/services/api";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
@@ -20,19 +20,19 @@ const getPostsCount = async () => {
   postsCount.value = data.length;
 };
 
-const addPost = async () => {
+const addPostHandler = async () => {
   const { title, description, image_src } = newPost.value;
   newPost.value.id = String(postsCount.value + 1);
   if (title && description && image_src) {
-    const data = await addSinglePost(newPost.value);
+    const data = await addPost(newPost.value);
     if (data) {
       router.push("/");
     }
   }
 };
 
-onBeforeMount(() => {
-  getPostsCount();
+onBeforeMount(async () => {
+  await getPostsCount();
 });
 </script>
 
@@ -100,7 +100,9 @@ onBeforeMount(() => {
           <router-link :to="{ path: '/' }" class="btn btn--primary">
             Cancel
           </router-link>
-          <button class="btn btn--secondary" @click="addPost">Submit</button>
+          <button class="btn btn--secondary" @click="addPostHandler">
+            Submit
+          </button>
         </div>
       </div>
     </div>

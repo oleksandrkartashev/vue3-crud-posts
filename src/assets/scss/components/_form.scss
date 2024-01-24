@@ -7,21 +7,22 @@
             margin-bottom: 0;
         }
     }
-    &-input, &-textarea {
+    &-input,
+    &-textarea {
         display: block;
-        color: #001233;
+        color: var(--form-text-color);
         line-height: normal;
         padding: 8px 0;
         width: 100%;
         max-height: 32px;
         background-color: transparent;
         border: none;
-        border-bottom: 1px solid #001233;
+        border-bottom: 1px solid var(--form-border-color);
         &:focus {
             outline: none;
         }
         &--invalid {
-            border-color: #ff3232;
+            border-color: var(--form-invalid-color);
         }
     }
     &-textarea {
@@ -29,10 +30,11 @@
     }
     &-message {
         &--error {
-            color: #ff3232;
+            color: var(--form-invalid-color);
         }
     }
-    &--edit, &--add {
+    &--edit,
+    &--add {
         margin-top: 20px;
         @include respond-to("md") {
             margin-top: 40px;
@@ -53,7 +55,6 @@
                 }
                 div {
                     width: 45%;
-                    
                 }
             }
         }
